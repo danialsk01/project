@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universities</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        .main {
+            margin-top: 70px
+        }
+    </style>
+</head>
+<body>
+    {% extends 'main.html' %}
+
+    {% block content %}
+
+    <div class="container main">
+        <br>
+        <form class="form-inline my-2 my-lg-0 d-flex justify-content-center" action="{% url 'universities' %}" method="get">
+            <input class="w-50 form-control " type="search" value="{{ search_query }}" placeholder="Search University" aria-label="search" name="search_query">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        
+        <br>
+        <h1>List of Universities</h1>
+        <br>
+        <ul>
+            {% for university in universities %}
+            
+            <li>University name: <a href="{% url 'university' university.id %}">{{ university.university_name }}</a></li>
+            <li>{{ university.description|truncatechars:150|safe }}</li>
+            <hr>
+            
+            {% endfor %}
+        </ul>
+    </div>
+
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ profession.profession_name }}</title>
+    <style>
+        .main {
+            margin-top: 70px;
+            margin-bottom: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container main">
+        <br>
+        <h1 class="text-center">{{ profession.profession_name }}</h1>
+        <br>
+        <h5>{{ profession.description|safe }}</h5>
+        <br>
+        <h4>Demand: {{ profession.demand }}</h4>
+        <br>
+        {% for speciality in profession.specialties.all %}
+            <span style="border: 1px solid grey">{{ speciality }}</span>
+        {% endfor %}
+        <br>
+        <br>
+        <img class="img-fluid border" src="{{ profession.main_image.url }}" alt="" width="400px" height="200px">
+        <br><br>
+        <p>{{ profession.education|safe }}</p>
+        <p>{{ profession.employment_outlook|safe }}</p>
+        <p>{{ profession.salary_range|safe }}</p>
+        <p>{{ profession.skills|safe }}</p>
+
+        <div id="carouselExampleIndicators" class="carousel slide" style="width: 50%;">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{{ profession.carousel_1.url }}" class="d-block w-100" height="400px" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ profession.carousel_2.url }}" class="d-block w-100" height="400px" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ profession.carousel_3.url }}" class="d-block w-100" height="400px" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+    {% endblock %}
+</body>
+</html>
