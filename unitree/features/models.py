@@ -38,9 +38,9 @@ class University(models.Model):
     longitude = models.DecimalField(max_digits=9, decimal_places=7)
 
     # carousel
-    carousel_1 = models.ImageField(default='', blank=True)
-    carousel_2 = models.ImageField(default='', blank=True)
-    carousel_3 = models.ImageField(default='', blank=True)
+    carousel_1 = models.CharField(max_length=500, default='')
+    carousel_2 = models.CharField(max_length=500, default='')
+    carousel_3 = models.CharField(max_length=500, default='')
 
     # social media
     facebook = models.CharField(max_length=250, default='')
@@ -90,9 +90,9 @@ class Speciality(models.Model):
     salary_to = models.IntegerField(default=0)
 
     # images for carousel
-    carousel_1 = models.ImageField(default='', blank=True)
-    carousel_2 = models.ImageField(default='', blank=True)
-    carousel_3 = models.ImageField(default='', blank=True)
+    carousel_1 = models.CharField(max_length=500, default='')
+    carousel_2 = models.CharField(max_length=500, default='')
+    carousel_3 = models.CharField(max_length=500, default='')
 
     # additional info
     job_outlook = RichTextField(blank=True, null=True)
@@ -139,9 +139,9 @@ class Profession(models.Model):
     main_image = models.ImageField(default='', blank=True)
 
     # images for carousel
-    carousel_1 = models.ImageField(default='', blank=True)
-    carousel_2 = models.ImageField(default='', blank=True)
-    carousel_3 = models.ImageField(default='', blank=True)
+    carousel_1 = models.CharField(max_length=500, default='')
+    carousel_2 = models.CharField(max_length=500, default='')
+    carousel_3 = models.CharField(max_length=500, default='')
 
     id = models.UUIDField(default=uuid.uuid4, unique=True, 
                           primary_key=True, editable=False)

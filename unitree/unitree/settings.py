@@ -1,5 +1,7 @@
 from pathlib import Path
 import os
+import django_heroku
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,6 +30,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'features.apps.FeaturesConfig',
+    'django_api.apps.DjangoApiConfig',
+    'drf_yasg',
     'embed_video',
     'ckeditor',
     'ckeditor_uploader',

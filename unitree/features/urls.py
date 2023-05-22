@@ -9,5 +9,5 @@ urlpatterns = [
     path('speciality/<str:pk>/', views.speciality, name="speciality"),
     path('professions/', views.professions, name="professions"),
     path('profession/<str:pk>/', views.profession, name="profession"),
-    path('api/', include('api.urls')),
+    path('django_api/', include('django_api.urls')),
 ]
